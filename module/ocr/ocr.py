@@ -1,17 +1,14 @@
 import atexit
 import io
-import os.path
 import logging
-
+import os.path
 
 import cv2
 import numpy as np
-from PIL import Image
 from cv2 import createCLAHE
-
+from PIL import Image
 from rapidocr import EngineType, LangDet, LangRec, ModelType, OCRVersion, RapidOCR
 from rapidocr.utils.output import RapidOCROutput
-
 
 from utils.singletonmeta import SingletonMeta
 
@@ -29,6 +26,7 @@ class OCR(metaclass=SingletonMeta):
                 "Rec.lang_type": LangRec.CH,
                 "Rec.model_type": ModelType.MOBILE,
                 "Rec.ocr_version": OCRVersion.PPOCRV4,
+                "EngineConfig.onnxruntime.use_dml": True,
             },
             config_path=r"assets\config\default_rapidocr.yaml",
         )
